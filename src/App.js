@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Button } from "antd";
+import "./App.css";
+import { useDarkMode } from "./customHooks/ThemeHook";
 
-function App() {
+const App = () => {
+  const [darkMode, setDarkMode] = useDarkMode(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        padding: "10px 60px 10px 60px",
+        backgroundColor: darkMode && "#282c34",
+      }}
+    >
+      <h1 style={{ color: darkMode && "white" }}>
+        {darkMode ? "Dark Theme" : "Light Theme"}
+      </h1>
+      <p style={{ color: darkMode && "white" }}>Wow this is awesome!</p>
+      <Button
+        onClick={() => setDarkMode(!darkMode)}
+        style={{
+          color: darkMode && "white",
+          backgroundColor: darkMode && "#db7093",
+        }}
+      >
+        {darkMode ? "Select Light Theme" : "Select Dark Theme"}
+      </Button>
     </div>
   );
-}
+};
 
 export default App;
