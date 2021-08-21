@@ -8,8 +8,8 @@ const App = () => {
 
   return (
     <div
+      className="App-header"
       style={{
-        padding: "10px 60px 10px 60px",
         backgroundColor: darkMode && "#282c34",
       }}
     >
